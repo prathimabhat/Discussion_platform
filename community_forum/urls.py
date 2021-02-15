@@ -14,6 +14,7 @@ urlpatterns=[
 	path('down_vote/<int:pk>/',views.QuestionDownVoteView,name="down_vote"),
 	path('answer_up_vote/<int:pk>/<int:pk_alt>',views.AnswerUpVoteView,name="answer_up_vote"),
 	path('answer_down_vote/<int:pk>/<int:pk_alt>',views.AnswerDownVoteView,name="answer_down_vote"),
-	path('report/<int:pk>',views.ReportView,name="report")
+	path('report/<int:pk>',views.ReportView,name="report"),
+	path('report/answer/<int:pk>/',views.ReportAnswerView,name="report_answer")
 
 ]

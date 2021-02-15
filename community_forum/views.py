@@ -140,7 +140,7 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.core import mail
 
-
+@login_required
 def ReportView(request,*args,**kwargs):
 	question=get_object_or_404(Questions,id=kwargs['pk'])
 	admins=Profile.objects.filter(superuser=True)
@@ -162,13 +162,14 @@ def ReportView(request,*args,**kwargs):
 		from_email = settings.EMAIL_HOST_USER
 		html_message = render_to_string('community_forum/question_mail.html',ctx,request=request)
 		plain_message = strip_tags(html_message)
-		to_email='namgudi007@gmail.com'
-
-		mail.send_mail(subject, plain_message, from_email, [to_email], html_message=html_message)
+		to_email=[]
+		for i in admins:
+			print(i.user.email)
+			to_email.append(i.user.email)
+			print(to_email)
+		mail.send_mail(subject, plain_message, from_email, to_email, html_message=html_message)
 		#to_email=[]
-		#for i in admins:
-			#to_email.append(str(i.email_id))
-			#print(to_email)
+		#
 		'''to_email=['prathimabhatm01@gmail.com']
 		text_content="Report"
 		html_content=get_template("community_forum/question_mail.html").render(ctx)
@@ -188,3 +189,34 @@ def ReportView(request,*args,**kwargs):
 
 		return redirect('community_forum:question-detail',question.id)
 	return render(request,"community_forum/report.html",context)
+
+@login_required
+def ReportAnswerView(request,*args,**kwargs):
+	answer=get_object_or_404(Answers,id=kwargs['pk'])
+	question=get_object_or_404(Questions,id=answer.question.id)
+	admins=Profile.objects.filter(superuser=True)
+	user=get_object_or_404(Profile,id=request.user.profile.id)
+	
+	if request.method=='POST':
+
+		ans_type=request.POST.get('reason')
+		
+		ctx ={
+			'user': user,
+			'question': question,
+			'ans_type':ans_type,
+			'answer':answer
+		}
+		subject = "Report"
+		#message = get_template('community_forum/question_mail.html'.render(ctx))
+		from_email = settings.EMAIL_HOST_USER
+		html_message = render_to_string('community_forum/answer_mail.html',ctx,request=request)
+		plain_message = strip_tags(html_message)
+		to_email=[]
+		for i in admins:
+			print(i.user.email)
+			to_email.append(i.user.email)
+			print(to_email)
+		mail.send_mail(subject, plain_message, from_email, to_email, html_message=html_message)
+		return redirect('community_forum:question-detail',question.id)
+	return render(request,"community_forum/report.html")

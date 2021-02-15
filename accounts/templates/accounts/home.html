@@ -1,9 +1,13 @@
 
 {% block content %}
+{% load static %}
 {% include 'Ask_the_doctor/base.html'%}
 <br><br>
 <div class="container">
+
+	<img src="{% static 'images/image1.jpg' %}" alt="Man sitting and looking at horizon">
 	<div class="row">
+
 		<div class="col-lg-8 offset-lg-2" style="font-size: 1.5rem;">
 			Dear user,<br>
 			This platform is for people who are suffering from mental illnesses or family members of such people.<br><br>
