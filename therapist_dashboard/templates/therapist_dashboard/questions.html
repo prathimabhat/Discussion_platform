@@ -1,0 +1,37 @@
+{% block content %}
+
+{% include 'therapist_dashboard/base.html' %}
+
+<style type="text/css">
+	body{
+		background-color: #EEEEE0;
+	}
+</style>
+<br><br>
+<div class="container" style="background-color:white;">
+	<div class="row">
+
+		
+		{% for question in question %}
+		
+	    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+	    	<span style="font-weight: bolder;">{{question.question|safe}}</span><br>
+	    	{{question.user.first_name}}&nbsp;{{question.user.last_name}}<br>
+	    	{{question.date}}<hr>
+
+	    </div>
+	    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+	    	<a href="/therapist_dashboard/questions/{{question.id}}/your_answers/">View Answer</a>
+	    </div>
+	    {% empty %}
+			<div class="container" style="text-align: center;background-color: #EEEEE0;color: red;font-size: 1.5rem;">
+				<b>Sorry! There are no questions for you</b>
+			</div>
+
+	    {% endfor %}
+	    <br>
+	</div>
+	
+</div>
+
+{% endblock %}

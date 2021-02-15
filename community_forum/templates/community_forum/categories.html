@@ -1,0 +1,91 @@
+{% block content %}
+{% include 'Ask_the_doctor/base.html' %}
+
+<style type="text/css">
+	body{
+		background-color: #EEEEE0;
+	}
+	
+	#overlay{
+		position: fixed; /* Sit on top of the page content */
+		display: none; /* Hidden by default */
+		width: 100%; /* Full width (cover the whole page) */
+		height: 100%; /* Full height (cover the whole page) */
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+		z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+		cursor: pointer; /* Add a pointer on hover */
+	}
+	#content{
+	  background-color: white;
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  font-size: 1.3rem;
+	  color: black;
+	  transform: translate(-50%,-50%);
+	  -ms-transform: translate(-50%,-50%);
+	}
+</style>
+
+<br><br>
+{% if request.user.is_normal_user is True%}
+<div class="container">
+	<p style="color:red;font-weight: bold;">Dear user, please ask your questions in the forum which is relavent to your question. If you are not sure about which category your question falls into, ask the question in 'Others' forum.</p>
+</div>
+
+<div class="container">
+		<span style="font-weight:bolder;"> Not sure which forum is for you?<a href="/community_forum/quiz/">Take the quiz</a><br>
+		for depression,anxiety,panic attacks  and bipolar disorder.<br></span>
+	</div><br><br>
+{% endif %}
+<div class="container" style="background-color:white;">
+
+	<div class="row">
+
+
+
+			{% for category in categories%}
+
+			<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+				<span style="font-weight: bolder;"><br><a href="/community_forum/{{category.category_name}}/">{{category.category_name|safe}}</a><br></span>
+				<a href="/community_forum/{{category.id}}/info/">More info...</a><br>
+			</div>
+			{% endfor %}
+			<br>
+			</div>
+
+
+</div>
+<!--
+<div id="overlay">
+	<div id="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-xs-12">
+					<br>
+					Not sure which forum is for you?<a href="/community_forum/quiz/">Take the quiz</a> for depression,anxiety,panic attacks and bipolar disorder.
+				</div>
+				<div class="col-lg-12 col-md-12 col-xs-12 offset-lg-5">
+					<br>
+					<button style="background: none;border:none;color:red;" onclick="off()">Skip</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+-->
+<script type="text/javascript">
+/*function on() {
+  document.getElementById("overlay").style.display = "block";
+}
+window.onload=on();
+function off() {
+  document.getElementById("overlay").style.display = "none";
+}*/
+</script>
+
+{% endblock %}

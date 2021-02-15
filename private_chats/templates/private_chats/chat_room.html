@@ -1,0 +1,56 @@
+{% extends 'private_chats/base.html'%}
+{% block content %}
+<br><br>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-2">
+			<form>
+				<div class="form-group">
+					<textarea id="chat-text" cols="80" rows="30"></textarea><br><br>
+					<input id="input" type="text" size="80"><br><br>
+					<input id="submit" type="button" value="Send">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+{{room_name|json_script:"room-name"}}
+{{request.user.username|json_script:"user_username"}}
+<script type="text/javascript">
+
+	document.querySelector("#submit").onclick=function(e){
+		const messageInputDom=document.querySelector('#input');
+		const message=messageInputDom.value;
+		chatSocket.send(JSON.stringify({
+			'message':message,
+			'username':user_username,
+			'command':'new_messages'
+		}));
+		messageInputDom.value='';
+	}
+
+
+
+	const roomName=JSON.parse(document.getElementById('room-name').textContent);
+	const user_username=JSON.parse(document.getElementById('user_username').textContent);
+	const chatSocket= new WebSocket(
+	  'ws://'+
+	  window.location.host+
+	  '/ws/chat/' +
+	  roomName +
+	  '/'
+
+	);
+
+	chatSocket.onmessage=function(e)
+	{
+		const data=JSON.parse(e.data);
+		console.log(data);
+		//document.querySelector('#user-hello').innerHTML=(data.tester)
+		document.querySelector('#chat-text').value+=(data.username+ ': '+data.message +'\n')
+	}
+    </script>
+
+{% endblock %}

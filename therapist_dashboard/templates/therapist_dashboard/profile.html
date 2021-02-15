@@ -1,0 +1,52 @@
+{% block content %}
+
+{% include 'therapist_dashboard/base.html' %}
+
+<style type="text/css">
+	body{
+		background-color: #EEEEE0;
+	}
+	.profile-box{
+		background-color: white;
+	}
+	.user-styles{
+		font-size: 1.9rem;
+		font-weight: bolder;
+		color:	#D2691E;
+		font-family: cursive;
+	}
+	.text-styles{
+		font-weight: bolder;
+		font-size: 1.3rem;
+	}
+
+</style>
+<br><br>
+
+	<div class="container profile-box">
+		<div class="row">
+
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<br><br><span class="user-styles">{{user.user_name}}</span>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-6 offset-md-6 text-styles">
+				Name : {{user.therapist_name}}
+			</div><br><br>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-6 offset-md-6 text-styles">
+				Email ID : {{user.therapist_email}}
+			</div><br><br>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-6 offset-md-6 text-styles">
+				Office address : {{user.office_address}}
+			</div><br><br>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-6 offset-md-6 text-styles">
+				Qualification : {{user.qualification}}
+			</div><br><br>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-6 offset-md-6 text-styles">
+				Area of specialization : {{user.specialization_area}}
+			</div><br><br>
+		
+		</div>
+	</div>
+
+
+{% endblock %}

@@ -1,0 +1,364 @@
+{% block content %}
+{% include 'Ask_the_doctor/base.html' %}
+
+<style type="text/css">
+	body{
+		background-color: #EEEEE0;
+	}
+</style>
+<br><br>
+	<div class="container" style="background-color: white;">
+	<div class="row">
+		&nbsp;&nbsp;&nbsp;&nbsp;<p style="text-align: center;font-weight: bolder;font-size: 1.8rem;color: blue;"><br>{{category.category_name}}</p>
+		{% if category.id is 3 %}
+
+		<div class="col-lg-6 col-md-6 col-xs-12">
+			<b>Dependence Syndrome</b><br><br>
+			The dependence syndrom is a cluster of physiological, behavioural and cognitive phenomena in which use of a substance or a class of substances takes on a much higher priority for a given individual than other behaviours that once had greater value. <br>
+			It is the desire to take psychoactive substances like alcohol, tobacco etc.<br><br>
+
+
+			<b>Psychoactive substances</b><br><br>
+			1.Alcohol<br><br>
+			2.Opioids e.g. opium, heroin<br><br>
+			3.Cannabinoids e.g. cannabis<br><br>
+			4.Cocaine<br><br>
+			5.Amphetamine and other sympathomimetics<br><br>
+			6.Hallucinogens e.g. LSD,phencyclidine (PCP)<br><br>
+			7.Sedatives and hypnotics e.g. barbituates<br><br>
+			8.Inhalants e.g. volatile solvents (nitrous)<br><br>
+			9.Nicotine e.g. chewable tobacco, cigarettes etc.<br><br>
+			10.Other stimulants e.g. caffeine<br><br>
+
+			<b>Some treatments</b><br><br>
+			1. Behaviour therapy<br><br>
+			2.Psychotherapy<br><br>
+			3.Group therapy e.g. AA(Alcoholics Anonymous)<br><br>
+			4.Detterent agents<br><br>
+			4.Psychological rehabilitation<br><br>
+		</div>
+		<div class="col-lg-6 col-md-6 col-xs-12">
+			<b>Signs and symptoms of possible substance abuse</b><br><br>
+			1.A strong desire or sense of compulsion to take the substance.<br><br>
+			2.Difficulties in controlling the substance-taking behaviour in terms of its onset,termination or levels of use.<br><br>
+			3.A psychological withdrawal state when the substance use gas ceased or reduced (withdrawal syndrome).<br><br>
+			4.Evidence of tolerance,such that increased doses of the psychoactive substance are required in order to achieve the effects originally produced by lower doses (e.g. alcohol and opiate dependent individuals may take daily doses that are sufficient to incapacitate or kill non-tolerant users).<br><br>
+			5.Progressive neglect of alternative pleasures or interests because of psychoactive substance use,increased amount of time necessary to obtain or take the substance or to recover from its effects.<br><br>
+			6.Persisting with substance use sespite clear evidence of overtly harmful consequences, such as harm to the liver,depressive mood states,drug-related impairment of cognitive functioning and the user is aware of the nature and extent of the harm.<br><br>
+			7.A narrowing of personal repertoire of patterns of substance use e.g. a tendency to drink in the same way on weekdays and weekends regardless of the social constrainst that determine appropriate drinking behaviour.<br><br>
+
+			<b>Some links...</b><br><br>
+			<a href="http://www.aagsoindia.org/"target="_blank" rel="noopener noreferrer">Alcoholics Anonymous India</a><br>
+			AA India Helpline -> <a href="tel:+91 9022771011"target="_blank" rel="noopener noreferrer">+91 9022771011</a><br>
+			GSO India Office -> <a href="tel:+91-8097055134"target="_blank" rel="noopener noreferrer">+91-8097055134</a><br>
+			Email-<a href="mailto:info@aagsoindia.org"target="_blank" rel="noopener noreferrer">info@aagsoindia.org</a><br>
+		</div>
+		{% endif %}
+		</div>
+		
+		{% if category.id is 1%}
+		Delirium is the commonest mental disorder in patients in medical or surgical units. 5 to 10% of such patients develop delirium at some point in their lives, especially postoperative patients.<br><br>
+
+		<b>Clinical Features</b><br><br>
+		1.A relatively acute onset<br><br>
+		2.Clouding of conciousness, characterised by a decreased awareness of surroundings and a decreased ability to respond to environmental stimuli<br><br>
+		3.Disorientation (most commonly in time, then in place and usually later in person),associated with a decreased attention span and distractability.<br><br>
+		4.Illusions,misinterpretations and hallucinations(usually visual).<br><br>
+		5.Slurring of speech,incoherence and fleeting delusions<br><br>
+		6.Insomnia,increase in symptoms at sundown etc.<br><br>
+		<b>Treatment</b><br>
+		Medication administered by a qualified psychiatrist, supportive medical and nursing care are necessary.<br><br>
+		{%endif%}
+
+
+		{% if category.id is 2%}
+		Dementia is a chronic organic mental disorder<br>
+		<b>Clinical features</b><br><br>
+		1.Impairment of intellectual functions<br><br>
+		2.Impairment of memory (predominantly of recent memory especially in early stages)<br><br>
+		3.Deterioration of personalitu with lack of personal care.<br><br>
+		4.Impairment of all these functions occurs globally causing interference with day-to-day activities and interpersonal relationships.<br><br>
+		5.Impairment of judgement and impulse control and abstract thinking.<br><br>
+		6.But there is no impairment of conciousness.<br><br>
+
+		<b>Possible causes</b><br><br>
+		1.Normal aging process.<br><br>
+		2.Delirium<br><br>
+		3.Alzheimer's Dementia<br><br>
+		4.Hypothyroid dementia<br><br>
+		5.AIDS dementia complex<br><br>
+
+		<b>Treatment</b>
+		1.Treatment of underlying Cause if treatable<br><br>
+		2.Treatment of medical complications if any.<br><br>
+		3.Care of food and hygiene.<br><br>
+		4.Medication.<br><br>
+		5.Short term hospitalisation.<br><br>
+		{%endif%}
+
+		{% if category.id is 4%}
+		Schizophrenia is characterised by disturbances in thought and verbal behaviour and relationship to the external world.<br><br>
+
+		<b>Features</b><br><br>
+		1.Thought and speech disorders - Thinking is governed by private and illogical rules. The patient may consider two things identical because they have identical properties.<br><br>
+		2.Loosening of associations - Spontaneous speech in which things said lack a meaningful relationship i.e. disjointed speech.<br><br>
+		3.Thought blocking-After a pause, the patient forgets what they meant to say.<br><br>
+		4.Neologisms- Forming new words or phrases which have no meaningful explanations.<br><br>
+		5.Delusions- Delusions of persecution, delusion of reference, delusion of grandeur, delusion of control, somatic delusions.<br><br>
+		6.Hallucinations.<br><br>
+
+		<b>Types of schizophrenia</b><br><br>
+		1.Paranoid schizophrenia<br><br>
+		2.Disorganized schizophrenia<br><br>
+		3.Catatonic schizophrenia<br><br>
+		4.Residual or latent schizophrenia<br><br>
+
+		{%endif%}
+
+		{% if category.id is 5%}
+		Bipolar disorder earlier known as manic depressive psychosis (MDP) is characterised by recurrent episodes of mania and depression in the same patient at different times.These episodes can occur in any sequence .
+
+		<b>Treatment</b>
+		1.Antidepressants<br><br>
+		2.Electroconvulsive therapy<br><br>
+		3.Antipsychotics.<br><br>
+		4.Cognitive behaviour therapy<br><br>
+		5.Interpersonal therapy<br><br>
+		6.Psychoanalytic psychotherapy<br><br>
+		7.Behaviour therapy<br><br>
+		8.Group therapy<br><br>
+		9.Family and marital therapy<br><br>
+		{%endif%}
+
+		{% if category.id is 7%}
+		Anxiety disorder is the commonest psychiatric disorders in general population.<br>
+		Anxiety is a normal phenomenon which is characterised by a state of apprehension or unease arusing out of anticipation of danger. Normal anxiety becomes pathological when it causes significaant subjective distress or impairment in functioning of an individual.<br><br>
+
+		<b>Symptoms</b><br>
+		Physical symptoms<br>
+		1.Tremors,restlessness,muscle twitches,fearful facial expression<br>
+		2.Palpitations,sweating,hyperventilation,constriction in chest,dry mouth,dizziness,diarrhoea etc.<br><br>
+
+		Psychological symptoms<br><br>
+		1.Poor concentration,distractability,vigilance or scanning,negative automatic thoughts.<br>
+		2.Derealisation,depersonalisation<br>
+		3.Diffuse,unpleasant and vague sense of apprehension, fearfulness,inability to relax, irritability,feeling of impending doom.<br>
+		4.Insomnia,increased sensitivity to noise, exaggerated startle response.
+
+		<br><br>
+		The exact cause of anxiety is not really kown even though there are several theories.<br>
+		<b>Treatment</b><br>
+		1.Psychotherapy<br>
+		2.Drug treatment<br>
+		3.Other behaviour therapies.<br><br>
+
+
+		{%endif%}
+
+		{%if category.id is 6%}
+		The life time risk of depression in males is 8-12% and in females is 20-26%. However, the life time risk of major depression is about 8%.<br>
+		Typical depressive episode is characterised by the following features (which should last for at least two weeks for a diagnosis to be made).<br>
+		1.Depressed mood<br>
+		Sadness of mood or loss of interest and/or pleasure in almost all activities (pervasive sadness),present throughout the day(persistent sadness). This sadness of mood is quantitatively and qualitatively different from the sadness encountered in 'normal' sadness or grief.The depressed mood varies little from day to day and is often not responsive to the environmental stimuli.<br>
+		Social withdrawal,decreased ability to function in occupational and interpersonal areas and decreased involvement in previously pleasureable activities.<br><br>
+		2.Depressive ideation/cognition<br>
+		Pessimism which can result in common types of depressive ideas like:<br>
+		a.Hopelessness (there is no hope in the future).<br>
+		b.Helplessness(no help is possible now).<br>
+		c.Worthlessness(feeling of inadequacy and inferiority).<br>
+
+		The ideas of worthlessness can result in self-reproach and guilt feelings.
+		<br><br>
+		3.Difficulty in thinking,difficulty in concentration,indecisiveness,slowed thinking,subjective poor memory, lack of initiative and energy,ruminations,thoughts of death and preoccupation with death.<br>
+		4.Suicidal ideas.<br>
+		5.Significant loss of appetite or weight etc.<br> 
+
+		<b>Treatments</b><br>
+		1.Antidepressants<br>
+		2.Psychotherapy<br>
+		3.Group therapy<br>
+		4.Electroconvulsive therapy<br>
+
+		<br><span style="color:red;">If you are feeling suicidal right now,
+		Please take help from  <a href='https://indianhelpline.com/SUICIDE-HELPLINE/'>national suicide helpline.</a> Suicide is never the answer</span>
+		<br><br>
+		{%endif%}
+
+		{% if category.id is 9%}
+		Phobia is defined as an irrational fear of a specific object,situation or activity,often leading to the avoidance of the object,situation or activity.<br>
+		Common types of phobia are:<br>
+		1.Agoraphobia - Irrational fear of situations like being away from the familiar setting of home. It includes the fear of public places, crowded places, open spaces or any other place where there is no easy escape to a safe place.<br><br>
+		2.Social phobia - Irrational fear of social interactions or performing activities in the presence of others like eating in public, talking to strangers etc.<br>
+		3.Specific(simple)phobia - Irrational fear of objects or situations.Anticipatory anxiety leads to persistent avoidant behaviour while confrontation with the avoided object or situation leads to panic attacks.<br><br>
+
+		<b>Treatment</b><br><br>
+		1. Psychotherapy<br>
+		2.Behaviour therapy<br>
+		3.Drug treatment<br><br>
+
+
+		{% endif %}
+
+		{% if category.id is 10%}
+		An obsession is defined as:<br>
+		1. An idea, impulse or image which intrudes into the concious awareness repeatedly.<br>
+		2.It is recognised as one's own idea,impulse or image but is perceived as ego-alien(foreign to one's personality).<br>
+		3.It is recognised as irrational and absurd (insight is present)<br>
+		4.Patient tries to resist against it but is unable to.<br>
+		5.Failure to resist,leads to marked distress.<br>
+
+		An obsession is usually associated with compulsion(s). Compulsion is defined as:<br>
+		1.A form of behaviour which usually follows obsessions.<br>
+		2.It is aimed at either preventing or neutralsing the distress or fear arising out of obsession.<br>
+		3.The behaviour is not realistic and is either irrational or excessive.<br>
+		4.Insight is present,so the patient realises the irrationality of compulsion.<br>
+		5.The behaviour is performed with a sense of subjective compuslion (urge or impulse to act).<br><br>
+
+		<b>Signs and symptoms of OCD</b><br>
+		1.Aggressive obsessions<br>
+		2.Contamination obsessions<br>
+		3.Sexual obsessions<br>
+		4.Hoarding/saving obsessions<br>
+		5.Religious/scrupulous obsessions<br>
+		6.Obsession with need for symmetry or exactness<br>
+		7.Somatic obsessions<br>
+		8.Miscellaneous obsessions<br>
+		9.Cleaning/washing compulsions<br>
+		10.Checking compulsions<br>
+		11.Repeating rituals<br>
+		12.Counting compulsions<br>
+		13.Ordering/arranging compulsions<br>
+		14.Hoarding/collecting compulsions<br>
+		15.Miscellaneous compulsions<br><br>
+
+		<b>Treatment</b><br>
+		1.Psychotherapy<br>
+		2.Behaviour therapy and cognitive therapy<br>
+		3.Drug treatment<br>
+		4.Electroconvulsive therapy<br>
+		5.Psychosurgery<br>
+
+		{% endif%}
+	
+		{%if category.id is 11%}
+		Previously called multiple personality disorder, in this disorder the person is dominated by two or more personalities,of which only one being manifest at a time.These personalities are usually different,at times even opposing.Each personality has a full range of higher mental functions and performs complex behaviour patterns.<br>
+		Usually one personality is not aware of the existence of the others i.e. there are amnesic barriers between the personalities. Both the onset and termination of control of each personality is sudden.<br>
+
+		<b>Treatment</b><br>
+		1.Behaviour therapy<br>
+		2.Psychotherapy with Abreaction- Abreaction is bringing to the concious awareness thoughts ,effects and memories for the first time, by gypnosis,free association or other methods.<br>
+		3.Supportive psychotherapy<br>
+		4.Psychoanalysis<br>
+		5.Drug therapy<br>
+		<br>
+		{%endif%}
+
+		{% if category.id is 12%}
+			The somatoform disorders are characterised by repeated presentation with physical symptoms which do not have any adequate physical basis(and are explained by the presence of other psychiatric disorders),and a persistent request for investigation and treatment despite repeated assurances by the treating doctors.<br><br>
+
+			<b>Features</b><br>
+			1.Multiple somatic symptoms in the absence of sny physicsl disorder<br>
+			2.The symptoms are recurrent and chronic(of msny years duration)at least 2 year duration is needed for diagnosis.<br>
+			3.The symptoms are vague, presented in a dramatic manner and involve multiple organ systems. The common symptoms include gastrointestinal(abdominal pain,beltching,nausea,vomiting,regurgitation),abnormal skin sensations(numbness,soreness,itching,tingling,burning) and sexual and menstrual complaints.<br>
+			4.There is frequent change of treating physicians<br>
+			5.Persistentr refusal to accept the advice or reassurance of several doctors that there is no physical explanation for the symptoms.<br>
+			6.Some degree of impairment of social and family functioning attributable to the nature of the symptoms and resulting behaviour.<br>
+			<br>
+
+			
+		{%endif%}
+
+		{%if category.id is 13%}
+		This disorder arises as a delayed and/protracted response to an exceptionally stressful or catastrophic life event or situation,which is likely to cause pervasive distress in 'almost any person'm(e.g. disasters,war,rape,torture,serious accident).<br>
+		The symptoms of PTSD may develop after a period of latency,within six months after the stress or maybe delayed beyond this period.<br>
+		PTSD is characterised by recurrent and intrusive recollections of the stressful event,either in flashbacks(images,thoughts or perceptions) and / or dreams.<br>
+		There is an associated sense of re-experiencing of the stressful event.There is marked avoidance of the events or situations that arouse recollections of the stressful event,along with marked symptoms of anxiety and increased arousal.<br>
+		The other important clinical features of PTSD include<br>
+		1.Partial amnesia for some aspects of the stressful event<br>
+		2.Feeling of numbness<br>
+		3.Anhedonia(inability to experience pleasure).<br>
+
+		<br>
+		{%endif%}
+
+		{% if category.id is 15%}
+
+		Personality is defined as a deeply ingrained pattern of behaviour that includes modes of perception,relating to and thinking about oneself and the surrounding environment.<br>
+		Personality disorders result when these personality traits become abnormal.,i.e. become inflexible and maladaptive and cause significant social or occupational impairment or significant subjective distress.<br><br>
+		<b>Subtypes</b><br>
+		1.Paranoid personality disorder - Patients may have traits of excessive sensitiveness,tendency to persistently bear grudges,significant suspiciousness,a combative and tenacious sense of personal 'right',recurrent suspicions about fidelity of a partner without justification, tendency to experience excessive self-importance, and preoccupation with unsubstantiated 'conspiratorial' explanations of events.<br><br>
+		2.Schizoid personality disorder - Emotional coldness,lack of pleasure from activities,limited capacity to express feelings towards others,apparent indifference to praise or criticism,little interest in sexual experiences,preference for solitary activities,excessive preoccupation with fantasy and introspection,lack of close friends and marked insensitivity to prevailing social norms and conventions<br><br>
+		3.Schizotypal personality disorder<br>
+		4.Antisocial or dissocial personality disorder<br>
+		5.Histrionic personality disorder<br>
+		6.Narcissistic personality disorder- Ideas of grandiosity and inflated sense of self importance, preoccupation with fantasies of unlimited success,attention seeking,dramatic behaviour,needs constant praise and unable to face criticism,lack of empathy with others, with exploitative behaviour,shaky self-esteem, underlying sense of inferiority ,easily depressed by minor events.<br>
+		7.Emotionally unstable personality disorder- Lack of impulse control,outbursts of violent threatening behaviour. It includes borderline personality disorder.<br>
+		8.Anxious(Avoidant) personality disorder.<br>
+		9.Dependent personality disorder<br>
+		10.Obsessive compulsive personality disorder<br>
+		11.Passive-Aggressive personality disorder<br>
+		 <br>
+
+		 <b>Treatment</b><br>
+		 1.Psychotherapy<br>
+		 2.Group therapy<br>
+		 3.Behaviour therapy<br><br>
+		{% endif%}
+
+		{% if category.id is 17%}
+		<b>Insomnia</b><br>
+		It is the disorder of initiation or maintenance of sleep.<br>
+		1.Difficulty in initiating sleep(going off to sleep).<br>
+		2.Difficulty in maintaining sleep(remaining asleep).This can include both frequent awakenings during the night and early morning awakenings.<br>
+		3.Non-restorative sleep where despite an adequate duration of sleep, there is a feeling of not having rested fully(poor quality sleep).<br><br>
+
+		<b>Hypersomnia</b><br>
+		1.Excessive day time sleepiness<br>
+		2.'Sleep attacks' during day time(falling asleep unintentionally)
+		<br>
+		3.'Sleep drunkenness'(person needs much more time to awaken and during this period is confused or disoriented).
+		<br><br>
+		{% endif %}
+
+		{% if category.id is 18%}
+		<b>Anorexia Nervosa</b><br><br>
+		1.There is an intense fear of becoming obese.This fear does not decrease even if body becomes very thin and underweight.<br>
+		2.There is often body-image disturbance.The person is unable to perceive own body size accurately.<br>
+		3.There is a refusal to maintain body weight above a minimum normal weight for that age,sex and height.<br>
+		4.Significant weight loss occurs,usually more than 25% of the original weight and final weight is usually 15% less than the minimum limit of normal weight.<br>
+		5.No known medical causes.<br>
+		6.Absence of any primary psychiatric disorder<br>
+		7.The patient imposes dietary restrictions on self, can have peculiar patterns of handling  food such as breaking food into small bits,hiding food and can engage in vigourous exercises.<br><br>
+
+		<b>Bulimia nervosa</b><br>
+		1.There is an intense fear of becoming obese.<br>
+		2.There is usally body-image disturbance.<br>
+		3.There is a persistent preoccupation with eating and an irresistable craving for food.There are episodes of binge eating<br>
+		4.There are attempts to 'counteract' the effects of overeating by induced vomiting,purgative abuse,periods of starvation,and/or use of drugs such as appetite suppressants.<br>
+		<br>
+
+		<b>Treatment</b>
+		1.Psychotherapy<br>
+		2.Behaviour therapy<br>
+		3.Group therapy and family therapy<br>
+		<br>
+		{% endif %}
+
+
+		{% if category.id is 21%}
+		 You can use this forum to talk about your concerns around mental health, grief, major life events which were distressful etc.<br><br>
+		 You can also seek answers to any doubts you have regarding your mental health. But please remember that this forum is only for support and the answers cannot diagnose you with any mental disorder.<br><br>
+		{% endif%}
+
+		{% if category.id is 22%}
+		If you are suffering from a disorder which is not mentioned in any of the categories in the community forum, please ask your questions here. You may also use this forum if you do not know the name of your disorder.<br><br>
+		{% endif%}
+
+
+</div>
+	
+
+
+
+
+{% endblock %}

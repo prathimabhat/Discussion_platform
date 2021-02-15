@@ -1,0 +1,102 @@
+{% extends 'Ask_the_doctor/base.html' %}
+{% block content %}
+<style type="text/css">
+	
+	#Box{
+		position: absolute;
+		top:20%;
+	
+	}
+
+	.addButton{
+		position: absolute;
+		right:5%;
+		top: 85%;
+		
+		
+
+	}
+	.newGroup{
+		font-size: 3rem;
+		color: green;
+		right: 3%;
+	}
+	.newGroup:hover{
+		color: blue;
+	}
+
+	a.conts{
+		color: black;
+		font-weight: bolder;
+		font-size: 1.5rem;
+		text-decoration: none;
+		}
+	a.conts:hover{
+		color:blue !important;
+
+
+	}
+	
+</style>
+<br><br>
+<div class="container">
+	<div class="row">
+		
+			<div class="col-lg-5 col-md-5 col-xs-6"  style="box-shadow:
+			 1px 0px 1px 1px;">
+				<br><br>
+				{% for contact in contacts %}
+					{% if contact not in msgs_received%}
+					{%ifchanged contact.msg_receiver%}
+					<a class="conts" href="/private_chats/{{contact.msg_sender.id}}/chat/{{contact.msg_receiver.id}}/"><p>{{contact.msg_receiver.user_name}}</p>
+						<hr></a>
+					{%endifchanged%}
+					{%endif%}
+
+				{% endfor %}
+				{% for mesg in msgs_received %}
+				{%ifchanged mesg.msg_receiver%}
+				
+				<a class="conts" href="/private_chats/{{user.id}}/chat/{{mesg.msg_sender.id}}/"><p>
+				{{mesg.msg_sender.user_name}}</p></a><hr>
+				
+				{% endifchanged %}
+			{% endfor %}
+
+				{%for grp in my_groups %}
+					<a class="conts"href="/private_chats/{{user.user_name}}/groupchat/{{grp.id}}/">{{grp.name}}</a><br><hr>
+				{% endfor %}
+				{% for grp2 in groups %}
+					{% if grp2 not in my_groups %}
+					<a class="conts" href="/private_chats/{{user.user_name}}/groupchat/{{grp2.id}}/">{{grp2.name}}</a><br><hr>
+					{% endif %}
+					
+				{% endfor %}
+		
+			</div>
+			<div class="col-lg-6 col-md-6 col-xs-12 offset-lg-6" id="Box">
+				
+				<div class="col-lg-6 col-md-6 col-xs-12 offset-lg-4">
+					<span style="font-size: 5rem;color:black;"><i class="far fa-comment-dots"></i></span><br><br><br>
+				</div>
+				<div class="col-lg-12 col-md-12">
+					<p style="color: grey;font-size: 1.5rem;">Send messages to a friend or a group</p><br><br>
+
+					<a href="/private_chats/{{user.user_name}}/new/" class="btn btn-primary" style="position: absolute;left: 30%" onclick="on()" >Send message</a>
+				</div>
+				
+				
+			</div>
+
+
+		
+	</div>
+</div>
+
+<div class="addButton">
+	<small>Create a group</small><br>
+	<a href="/private_chats/{{user.user_name}}/create_group/" class="newGroup"><i class="fa fa-plus" aria-hidden="true"></i></a>
+</div>
+
+
+{% endblock %}

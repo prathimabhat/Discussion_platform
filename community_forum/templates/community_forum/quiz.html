@@ -1,0 +1,506 @@
+{% block content %}
+{% include 'Ask_the_doctor/base.html' %}
+
+<style type="text/css">
+	body{
+		background-color: #EEEEE0;
+	}
+	
+</style>
+
+<br><br>
+<div class="container">
+	<p id="results"></p>
+</div>
+
+
+<div class="container" style="background-color: white;">
+	<br>
+	<div class="row">
+		<div class="col-sm-6  d-flex align-items-stretch" id="Anx">
+			<div class="card  mb-2 mt-3">
+				<div class="card-body">
+					<h5 class="card-title">Anxiety</h5>
+
+				<div class="card-text">
+			<form method="GET" onsubmit="event.preventDefault();return calculateAnx(this)" id="Anx_form">
+				<p>During the <span style="color: blue;font-weight: bold;">last 2 weeks</span>, how much have you been
+				bothered by any of the following problems?</p>
+				<p><b>1. Feeling nervous anxiety or on edge</b></p>
+				
+				<input type="radio" value="0" name="GAD1" required>
+				<label for="0">Not at all</label><br>
+				<input type="radio" name="GAD1" value="1">
+				<label for="1">Several days</label><br>
+				<input type="radio" name="GAD1" value="2">
+				<label for="2">More than half the days</label><br>
+				<input type="radio" name="GAD1" value="3">
+				<label for="3">Nearly every day</label><br><br>
+
+				<p><b>2. Not being able to stop or control worrying</b></p>
+
+				<input type="radio" value="0" name="GAD2" required>
+				<label for="0">Not at all</label><br>
+				<input type="radio" name="GAD2" value="1">
+				<label for="1">Several days</label><br>
+				<input type="radio" name="GAD2" value="2">
+				<label for="2">More than half the days</label><br>
+				<input type="radio" name="GAD2" value="3">
+				<label for="3">Nearly every day</label><br><br>
+
+				<p><b>3. Worrying too much about different things</b></p>
+
+				<input type="radio" value="0" name="GAD3" required>
+				<label for="0">Not at all</label><br>
+				<input type="radio" name="GAD3" value="1">
+				<label for="1">Several days</label><br>
+				<input type="radio" name="GAD3" value="2">
+				<label for="2">More than half the days</label><br>
+				<input type="radio" name="GAD3" value="3">
+				<label for="3">Nearly every day</label><br><br>
+
+				<p><b>4. Trouble relaxing</b></p>
+
+				<input type="radio" value="0" name="GAD4" required>
+				<label for="0">Not at all</label><br>
+				<input type="radio" name="GAD4" value="1">
+				<label for="1">Several days</label><br>
+				<input type="radio" name="GAD4" value="2">
+				<label for="2">More than half the days</label><br>
+				<input type="radio" name="GAD4" value="3">
+				<label for="3">Nearly every day</label><br><br>
+
+				<p><b>5. Being so restless that it is hard to sit still</b></p>
+
+				<input type="radio" value="0" name="GAD5" required>
+				<label for="0">Not at all</label><br>
+				<input type="radio" name="GAD5" value="1">
+				<label for="1">Several days</label><br>
+				<input type="radio" name="GAD5" value="2">
+				<label for="2">More than half the days</label><br>
+				<input type="radio" name="GAD5" value="3">
+				<label for="3">Nearly every day</label><br><br>
+
+				<p><b>6. Becoming easily annoyed or irritable</b></p>
+
+				<input type="radio" value="0" name="GAD6" required>
+				<label for="0">Not at all</label><br>
+				<input type="radio" name="GAD6" value="1">
+				<label for="1">Several days</label><br>
+				<input type="radio" name="GAD6" value="2">
+				<label for="2">More than half the days</label><br>
+				<input type="radio" name="GAD6" value="3">
+				<label for="3">Nearly every day</label><br><br>
+
+				<p><b>7. Feeling afraid as if something awful might happen</b></p>
+
+				<input type="radio" value="0" name="GAD7" required>
+				<label for="0">Not at all</label><br>
+				<input type="radio" name="GAD7" value="1">
+				<label for="1">Several days</label><br>
+				<input type="radio" name="GAD7" value="2">
+				<label for="2">More than half the days</label><br>
+				<input type="radio" name="GAD7" value="3">
+				<label for="3">Nearly every day</label><br><br>
+
+				<hr>
+				<button type="submit" class="btn btn-primary">See results</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+			</div>
+			<div class="col-sm-6  d-flex align-items-stretch" id="Panic">
+				<div class="card  mb-2 mt-3">
+				<div class="card-body">
+					<h5 class="card-title">Panic attack</h5>
+
+				<div class="card-text">
+				<form method="GET" onsubmit="event.preventDefault();return calculatePan(this)" id="Panic_form">
+				<p><b>In the last 4 weeks, have you had an anxiety attack ⎯ suddenly
+feeling fear or panic?</b></p>
+				
+				<input type="radio" name="panic_attack" value="0" required>
+				<label for="0">No</label><br>
+				<input type="radio" name="panic_attack" value="1">
+				<label for="1">Yes</label><br>
+
+				<p style="color: red;font-weight: bolder;">If you checked Yes, answer the questions till (d). Otherwise got to the next section</p>
+
+				<p>a. Has this ever happened before?</p>
+
+				<input type="radio" name="PAN1" value="0">
+				<label for="0">No</label><br>
+				<input type="radio" name="PAN1" value="1">
+				<label for="1">Yes</label><br><br>
+
+				<p>b. Do some of these attacks come suddenly out of the blue ⎯ that is,
+in situations where you don’t expect to be nervous or
+uncomfortable?</p>
+				<input type="radio" name="PAN2" value="0">
+				<label for="0">No</label><br>
+				<input type="radio" name="PAN2" value="1">
+				<label for="1">Yes</label><br><br>
+
+				<p>c. Do these attacks bother you a lot or are you worried about having
+another attack</p>
+
+				<input type="radio" name="PAN3" value="0">
+				<label for="0">No</label><br>
+				<input type="radio" name="PAN3" value="1">
+				<label for="1">Yes</label><br><br>
+
+				<p>d. During your last bad anxiety attack, did you have symptoms
+like shortness of breath, sweating, or your heart racing,
+pounding or skipping</p>
+				<input type="radio" name="PAN4" value="0">
+				<label for="0">No</label><br>
+				<input type="radio" name="PAN4" value="1">
+				<label for="1">Yes</label><br><br>
+				<hr>
+				<button type="submit" class="btn btn-primary">See results</button>
+			</form>
+</div>
+</div>
+</div>
+
+</div>
+<div class="col-sm-6  d-flex align-items-stretch" id="Dep">
+	<div class="card  mb-2 mt-3">
+				<div class="card-body">
+					<h5 class="card-title">Depression</h5>
+
+				<div class="card-text">
+	<form method="GET" onsubmit="event.preventDefault();return calculateDep(this)" id="Dep_form">
+
+				<p><b>Over the last 2 weeks, how often have you been bothered
+by any of the following problems?</b></p>
+
+			<p><b>1. Little interest or pleasure in doing
+				things</b></p>
+
+				<input type="radio" value="0" name="PHQ_9_1" required>
+				<label for="0">Not at all</label><br>
+				<input type="radio" name="PHQ_9_1" value="1">
+				<label for="1">Several days</label><br>
+				<input type="radio" name="PHQ_9_1" value="2">
+				<label for="2">More than half the days</label><br>
+				<input type="radio" name="PHQ_9_1" value="3">
+				<label for="3">Nearly every day</label><br><br>
+
+			<p><b>2. Feeling down, depressed, or
+			hopeless</b></p>
+				<input type="radio" value="0" name="PHQ_9_2" required>
+				<label for="0">Not at all</label><br>
+				<input type="radio" name="PHQ_9_2" value="1">
+				<label for="1">Several days</label><br>
+				<input type="radio" name="PHQ_9_2" value="2">
+				<label for="2">More than half the days</label><br>
+				<input type="radio" name="PHQ_9_2" value="3">
+				<label for="3">Nearly every day</label><br><br>
+
+			<p><b>3. Trouble falling or staying asleep, or sleeping too
+much</b></p>
+				<input type="radio" value="0" name="PHQ_9_3" required>
+				<label for="0">Not at all</label><br>
+				<input type="radio" name="PHQ_9_3" value="1">
+				<label for="1">Several days</label><br>
+				<input type="radio" name="PHQ_9_3" value="2">
+				<label for="2">More than half the days</label><br>
+				<input type="radio" name="PHQ_9_3" value="3">
+				<label for="3">Nearly every day</label><br><br>
+
+					<p><b>4. Feeling tired or having little energy</b></p>
+				<input type="radio" value="0" name="PHQ_9_4" required>
+				<label for="0">Not at all</label><br>
+				<input type="radio" name="PHQ_9_4" value="1">
+				<label for="1">Several days</label><br>
+				<input type="radio" name="PHQ_9_4" value="2">
+				<label for="2">More than half the days</label><br>
+				<input type="radio" name="PHQ_9_4" value="3">
+				<label for="3">Nearly every day</label><br><br>
+
+				<p><b>5. Poor appetite or overeating</b></p>
+				<input type="radio" value="0" name="PHQ_9_5" required>
+				<label for="0">Not at all</label><br>
+				<input type="radio" name="PHQ_9_5" value="1">
+				<label for="1">Several days</label><br>
+				<input type="radio" name="PHQ_9_5" value="2">
+				<label for="2">More than half the days</label><br>
+				<input type="radio" name="PHQ_9_5" value="3">
+				<label for="3">Nearly every day</label><br><br>
+
+				<p><b>6.Feeling bad about yourself — or that you are a failure
+or have let yourself or your family
+down</b></p>
+				<input type="radio" value="0" name="PHQ_9_6" required>
+				<label for="0">Not at all</label><br>
+				<input type="radio" name="PHQ_9_6" value="1">
+				<label for="1">Several days</label><br>
+				<input type="radio" name="PHQ_9_6" value="2">
+				<label for="2">More than half the days</label><br>
+				<input type="radio" name="PHQ_9_6" value="3">
+				<label for="3">Nearly every day</label><br><br>
+
+				<p><b>7. Trouble concentrating on things, such as reading the
+newspaper or watching
+television</b></p>
+				<input type="radio" value="0" name="PHQ_9_7" required>
+				<label for="0">Not at all</label><br>
+				<input type="radio" name="PHQ_9_7" value="1">
+				<label for="1">Several days</label><br>
+				<input type="radio" name="PHQ_9_7" value="2">
+				<label for="2">More than half the days</label><br>
+				<input type="radio" name="PHQ_9_7" value="3">
+				<label for="3">Nearly every day</label><br><br>
+
+				<p><b>8. Moving or speaking so slowly that other people could
+have noticed? Or the opposite – being so fidgety or
+restless that you have been moving around a lot more
+than
+usual</b></p>
+				<input type="radio" value="0" name="PHQ_9_8" required>
+				<label for="0">Not at all</label><br>
+				<input type="radio" name="PHQ_9_8" value="1">
+				<label for="1">Several days</label><br>
+				<input type="radio" name="PHQ_9_8" value="2">
+				<label for="2">More than half the days</label><br>
+				<input type="radio" name="PHQ_9_8" value="3">
+				<label for="3">Nearly every day</label><br><br>
+
+				<p><b>9. Thoughts that you would be beter off dead of or
+hurting yourself in some
+way</b></p>
+				<input type="radio" value="0" name="PHQ_9_9" required>
+				<label for="0">Not at all</label><br>
+				<input type="radio" name="PHQ_9_9" value="1">
+				<label for="1">Several days</label><br>
+				<input type="radio" name="PHQ_9_9" value="2">
+				<label for="2">More than half the days</label><br>
+				<input type="radio" name="PHQ_9_9" value="3">
+				<label for="3">Nearly every day</label><br><br>
+
+
+<p style="color: blue;font-weight: bold;">If you checked off any problems on this questionnaire, how difficult have these problems made it
+for you to do your work, take care of things at home, or get along with other people?</p>
+
+				<input type="radio" value="0" name="impact" required>
+				<label for="0">Not difficult at all</label><br>
+				<input type="radio" name="impact" value="1">
+				<label for="1">Somewhat difficult</label><br>
+				<input type="radio" name="impact" value="2">
+				<label for="2">Very difficult</label><br>
+				<input type="radio" name="impact" value="3">
+				<label for="3">Extremely difficult</label><br><br>
+<button type="submit" class="btn btn-primary">See results</button>
+		</form>
+
+	</div>
+</div>
+</div>
+</div>
+<div class="col-sm-6  d-flex align-items-stretch" id="Bip">
+	<div class="card  mb-2  mt-3">
+				<div class="card-body">
+					<h5 class="card-title">Bipolar mood disorder</h5>
+
+				<div class="card-text">
+	<form method="GET" onsubmit="event.preventDefault();return calculateBip(this)" id="Bip_form">
+		<p><b>1. Has there ever been a period of time when you were not your usual self and...</b></p>
+			<p>...you felt so good or so hyper that other people thought you were not your normal
+self or you were so hyper that you got into trouble?</p>
+
+			<input type="radio" name="BIP_1_a" value="0" required>
+			<label for="0">No</label><br>
+			<input type="radio" name="BIP_1_a" value="1">
+			<label for="1">Yes</label><br>
+
+			<p>...you were so irritable that you shouted at people or started fights or arguments?</p>
+			<input type="radio" name="BIP_2_a" value="0" required>
+			<label for="0">No</label><br>
+			<input type="radio" name="BIP_2_a" value="1">
+			<label for="1">Yes</label><br>
+
+			<p>...you felt much more self-confident than usual?</p>
+ 
+			<input type="radio" name="BIP_3_a" value="0" required>
+			<label for="0">No</label><br>
+			<input type="radio" name="BIP_3_a" value="1">
+			<label for="1">Yes</label><br>
+			
+
+			<p>...you got much less sleep than usual and found you didn’t really miss it?</p>
+
+			<input type="radio" name="BIP_4_a" value="0" required>
+			<label for="0">No</label><br>
+			<input type="radio" name="BIP_4_a" value="1">
+			<label for="1">Yes</label><br>
+			
+
+			<p>...you were much more talkative or spoke faster than usual?</p>
+
+			<input type="radio" name="BIP_5_a" value="0" required>
+			<label for="0">No</label><br>
+			<input type="radio" name="BIP_5_a" value="1">
+			<label for="1">Yes</label><br>
+			
+
+			<p>...thoughts raced through your head or you couldn’t slow your mind down?</p>
+
+			<input type="radio" name="BIP_6_a" value="0" required>
+			<label for="0">No</label><br>
+			<input type="radio" name="BIP_6_a" value="1">
+			<label for="1">Yes</label><br>
+			
+
+			<p>...you were so easily distracted by things around you that you had trouble
+concentrating or staying on track?</p>
+
+			<input type="radio" name="BIP_5_a" value="0" required>
+			<label for="0">No</label><br>
+			<input type="radio" name="BIP_5_a" value="1">
+			<label for="1">Yes</label><br>
+			
+			<p>...you had much more energy than usual?</p>
+
+			<input type="radio" name="BIP_6_a" value="0" required>
+			<label for="0">No</label><br>
+			<input type="radio" name="BIP_6_a" value="1">
+			<label for="1">Yes</label><br>
+			
+
+			<p>...you were much more active or did many more things than usual?</p>
+
+			<input type="radio" name="BIP_7_a" value="0" required>
+			<label for="0">No</label><br>
+			<input type="radio" name="BIP_7_a" value="1">
+			<label for="1">Yes</label><br>
+			
+
+			<p>...you were much more social or outgoing than usual, for example, you telephoned
+friends in the middle of the night?</p>
+
+			<input type="radio" name="BIP_8_a" value="0" required>
+			<label for="0">No</label><br>
+			<input type="radio" name="BIP_8_a" value="1">
+			<label for="1">Yes</label><br>
+			
+			<p>...you were much more interested in sex than usual?</p>
+
+			<input type="radio" name="BIP_9_a" value="0" required>
+			<label for="0">No</label><br>
+			<input type="radio" name="BIP_9_a" value="1">
+			<label for="1">Yes</label><br>
+			
+
+			<p>...you did things that were unusual for you or that other people might have thought
+were excessive, foolish, or risky?</p>
+
+			<input type="radio" name="BIP_10_a" value="0" required>
+			<label for="0">No</label><br>
+			<input type="radio" name="BIP_10_a" value="1">
+			<label for="1">Yes</label><br>
+			
+
+			<p>...spending money got you or your family into trouble?</p>
+
+			<input type="radio" name="BIP_11_a" value="0" required>
+			<label for="0">No</label><br>
+			<input type="radio" name="BIP_11_a" value="1">
+			<label for="1">Yes</label><br>
+			
+
+
+			<p><b>2. If you checked YES to more than one of the above, have several of these ever happened during the same
+			period of time?</b></p>
+			<input type="radio" name="BIP_b" value="0" required>
+			<label for="0">No</label><br>
+			<input type="radio" name="BIP_b" value="1">
+			<label for="1">Yes</label><br>
+
+			<p><b>How much of a problem did any of these cause you — like being unable to work; having family, money, or
+legal troubles; getting into arguments or fights?</b></p>
+			<input type="radio" value="0" name="BIP_c" required>
+			<label for="0">No problem</label><br>
+			<input type="radio" name="BIP_c" value="1">
+			<label for="1">Minor problem</label><br>
+			<input type="radio" name="BIP_c" value="2">
+			<label for="2">Moderate problem</label><br>
+			<input type="radio" name="BIP_c" value="3">
+			<label for="3">Serious problem</label><br><br>
+<button type="submit" class="btn btn-primary">See results</button>
+			</form>
+
+		</div>
+	</div>
+</div>
+			<br><br>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+	function calculateAnx(theform){
+		
+		GAD_score=parseInt(theform.GAD1.value)+parseInt(theform.GAD2.value)+parseInt(theform.GAD3.value)+parseInt(theform.GAD4.value)+parseInt(theform.GAD5.value)+parseInt(theform.GAD6.value)+parseInt(theform.GAD7.value);
+		
+
+		if(GAD_score>=10){
+			document.getElementById('results').innerHTML="<b>We recommend you the following forum to ask your questions in: </b><br>"
+			document.getElementById('results').innerHTML+="<br><a href='/community_forum/Anxiety  Forum'>Anxiety Forum</a><br>"
+
+		}
+	}
+
+
+	function calculateDep(theform){
+		PHQ9_score=parseInt(theform.PHQ_9_1.value)+parseInt(theform.PHQ_9_2.value)+parseInt(theform.PHQ_9_3.value)+parseInt(theform.PHQ_9_4.value)+parseInt(theform.PHQ_9_5.value)+parseInt(theform.PHQ_9_6.value)+parseInt(theform.PHQ_9_7.value)+parseInt(theform.PHQ_9_8.value)+parseInt(theform.PHQ_9_9.value);
+
+		if(PHQ9_score>=10){
+			document.getElementById('results').innerHTML="<b>We recommend you the following forum to ask your questions in: </b><br>"
+			document.getElementById('results').innerHTML+="<a href='/community_forum/Depression Forum/'>Depression Forum</a>"
+		}
+
+		if(parseInt(theform.PHQ_9_9.value)>0)
+		{
+			document.getElementById('results').innerHTML+="<br><span style='color:red;font-weight:bolder;'>Please take help from  <a href='https://indianhelpline.com/SUICIDE-HELPLINE/'>national suicide helpline.</a> Suicide is never the answer</span>"
+		}
+	}
+		
+	function calculatePan(theform){
+
+		if(parseInt(theform.panic_attack.value)==1){
+			PAN_score=parseInt(theform.PAN1.value)+parseInt(theform.PAN2.value)+parseInt(theform.PAN3.value)+parseInt(theform.PAN4.value);
+		}
+		else{
+			PAN_score=0;
+		}
+
+		//impact_score=parseInt(theform.impact.value);
+
+		if(PAN_score>=1){
+			
+			document.getElementById('results').innerHTML+="If you are having frequent panic attacks please consult a qualified professional."
+		}
+	}
+
+	function calculateBip(theform){
+
+		BIP_score=parseInt(theform.BIP_1_a.value)+parseInt(theform.BIP_2_a.value)+parseInt(theform.BIP_3_a.value)+parseInt(theform.BIP_4_a.value)+parseInt(theform.BIP_5_a.value)+parseInt(theform.BIP_6_a.value)+parseInt(theform.BIP_7_a.value)+parseInt(theform.BIP_8_a.value)+parseInt(theform.BIP_9_a.value)+parseInt(theform.BIP_10_a.value)+parseInt(theform.BIP_11_a.value);
+
+		if(BIP_score>7 && parseInt(theform.BIP_b.value)==1 && parseInt(theform.BIP_c.value)>=2){
+			document.getElementById('results').innerHTML="<b>We recommend you the following forum to ask your questions in: </b><br>"
+			document.getElementById('results').innerHTML+="<br><a href='/community_forum/Bipolar mood disorder Forum/'>Bipolar Spectrum Disorder Forum</a>"
+		}
+	}
+
+		
+		
+</script>
+
+{% endblock %}

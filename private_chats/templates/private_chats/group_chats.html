@@ -1,0 +1,127 @@
+{% extends 'Ask_the_doctor/base.html' %}
+{% block content %}
+
+<style type="text/css">
+	body{
+		background-color: #EEEEE0;
+	}
+	a.conts{
+		color: black;
+		font-weight: bolder;
+		font-size: 1.5rem;
+		text-decoration: none;
+		}
+	a.conts:hover{
+		color:blue !important;
+
+	}
+	.textBlobs{
+		
+		display: inline-block;
+		padding-right: 0.6rem;
+		padding-bottom:0.2rem;
+		padding-top:0.2rem;
+		padding-left:0.2rem;
+		border-radius: 5px;
+
+
+	}
+	.grpName{
+		background-color: 	#FFEFD5;
+		border-radius: 5px;
+		font-weight: bold;
+		font-size: 2rem;
+		padding-left: 1rem;
+
+	}
+	 div.scroll { 
+                margin:4px, 4px; 
+                padding:4px; 
+                
+                width: 500px; 
+                height: 110px; 
+                overflow-x: hidden; 
+                overflow-y: auto; 
+                text-align:justify; 
+            } 
+
+</style>
+<br><br>
+
+<div class="container">
+		<div class="row" >
+			<div class="col-lg-4 col-md-4 col-xs-12 scroll" style="background-color: white;">
+				{% for contact in contacts %}
+					{%ifchanged contact.msg_receiver%}
+					<a class="conts" href="/private_chats/{{contact.msg_sender.id}}/chat/{{contact.msg_receiver.id}}/"><p>{{contact.msg_receiver.user_name}}</p>
+						<hr></a>
+					{%endifchanged%}
+
+				{% endfor %}
+				{% for mesg in msgs_received %}
+				{%ifchanged mesg.msg_receiver%}
+				<a class="conts" href="/private_chats/{{user.id}}/chat/{{mesg.msg_sender.id}}/"><p>
+				{{mesg.msg_sender.user_name}}</p></a><hr>
+				{% endifchanged %}
+			{% endfor %}
+				{%for grp in my_groups %}
+					<a class="conts"href="/private_chats/{{user.user_name}}/groupchat/{{grp.id}}/">{{grp.name}}</a><br><hr>
+				{% endfor %}
+				{% for grp2 in groups %}
+					{% if grp2 not in my_groups %}
+					<a class="conts" href="/private_chats/{{user.user_name}}/groupchat/{{grp2.id}}/">{{grp2.name}}</a><br><hr>
+					{% endif %}
+					
+				{% endfor %}
+			</div>
+
+			<div class="col-lg-8 col-md-8 col-xs-12 "><br><br>
+				<a href="/private_chats/group_details/{{this_group.id}}/"><p class="grpName">{{this_group.name}}</p></a><br><br>
+					<div class="scroll">
+						<div class="col-lg-6 col-md-6 col-xs-12 ">
+							<br>
+						{% for txt_ in texts %}
+							{% if txt_ not in texts_sent_by_me %}
+
+							<span class="textBlobs"style="background-color:	#fffec8;">	<span style="color: blue;"><small>{{txt_.sender}}</small></span><br>{{txt_.content}}</span><br>
+							{% endif %}
+						
+						{% endfor %}
+						</div>
+						<div class="col-lg-6 col-md-6 col-xs-12 offset-lg-6 " >
+							<br>
+						{% for txt in texts_sent_by_me %}
+							
+							<span class="textBlobs" style="background-color: #F0FFFF;text-align: right;"><span style="color: blue;"><small>{{txt.sender}}</small></span><br>{{txt.content}}</span><br>
+							
+						{% endfor %}
+						</div>
+					</div>
+			</div>
+
+		</div>
+
+</div>
+<div class="container" style="position: fixed;bottom: 0%;right: 3%;">
+	<div class="form-group">
+	<form method="POST">
+		<div class="row" >
+			<div class="col-lg-6 col-md-6 col-xs-6 offset-lg-4 "style="background-color: white;box-shadow: 2px 2px 2px;">
+				<br>
+				{% csrf_token %}
+				{{form.content}}
+			</div>
+			<div class="col-lg-2 col-md-2 col-xs-2"style="background-color: white;box-shadow: 2px 2px 2px;">
+				<br>
+				<button type="submit"  class="btn btn-success" style="border-radius: 50%;"> <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+				<br><br>
+			</div>
+		</div>
+		
+
+	</form>
+</div>	
+</div>
+
+
+{% endblock %}

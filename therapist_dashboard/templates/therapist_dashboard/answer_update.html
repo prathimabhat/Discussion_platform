@@ -1,0 +1,53 @@
+{% block content %}
+{% include 'therapist_dashboard/base.html' %}
+
+<style type="text/css">
+	body{
+		background-color: #EEEEE0;
+	}
+
+
+	.inner-box{
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+
+		
+	}
+	.mic{
+		color: #000000;
+		font-size: 1.5rem;
+	}
+	.mic:hover{
+		color: blue;
+
+	}
+
+</style>
+<br><br>
+
+<div class="container">
+	
+	<div class="row">
+		<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 inner-box">
+					<div class="form-group">
+						<form method="POST">
+							
+							{% csrf_token %}
+							{{ form.text | safe }}
+							{{ form.media }}
+							{{form.as_p}}
+							&nbsp;<a href="/"><i class="fas fa-microphone mic"></i></a><br><br>
+							<input type="submit" class="btn btn-primary" name="Submit">
+							
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br><br>
+
+	</div>
+</div>
+
+{% endblock %}

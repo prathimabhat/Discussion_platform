@@ -1,0 +1,20 @@
+{% extends 'private_chats/base.html'%}
+{% block content %}
+	<br><br>
+	<div class="container">
+		<div class="row">
+			<a href="/private_chats/{{request.user.profile.user_name}}/groupchat/{{group.id}}/" style="font-size: 2rem;color: black;"><-</a>
+			<div class="col-lg-6 col-md-6 offset-lg-4">	
+				<b>Group Members</b><br><br><hr>
+				{%for member in group.members.all%}
+				{% if member is group.admin.user_name%}
+					{{member}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>Admin</small><br><br>
+				{%else%}
+					{{member}}<br><br>
+				{% endif %}
+				{%endfor%}
+			</div>
+
+		</div>
+	</div>
+{% endblock %}

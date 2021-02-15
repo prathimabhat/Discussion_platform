@@ -1,0 +1,164 @@
+
+{% block content %}
+{% include 'private_chats/private_chatroom.html' %}
+<style type="text/css">
+	
+	#overlay{
+		position: fixed; /* Sit on top of the page content */
+		display: none; /* Hidden by default */
+		width: 100%; /* Full width (cover the whole page) */
+		height: 100%; /* Full height (cover the whole page) */
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+		z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+		cursor: pointer; /* Add a pointer on hover */
+	}
+	#content{
+	  background-color: white;
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  font-size: 1.5rem;
+	  color: black;
+	  transform: translate(-50%,-50%);
+	  -ms-transform: translate(-50%,-50%);
+	}
+	.search{
+		font-size: 1.3rem;
+		border:none;
+		background-color:white; 
+
+	}
+	
+	
+</style>
+
+<div id="overlay">
+	<br><br>
+	<div id="content" class="container col-lg-6 col-md-6">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-2 col-md-2 col-xs-6">
+					<button  style="font-size: 1.7rem;border:none;background: none; " onclick="off()">X</button>
+				</div>
+				<div class="col-lg-8 col-md-8 col-xs-6 offset-lg-2 offset-md-2">
+					<span style="color: black;font-size: 1.8rem;">New message</span>
+				</div>
+			</div>
+		
+			
+			<!--<a href="/private_chats/{{user.user_name}}/chat/" style="position: absolute;right: 10%;top:10%;font-size: 1.3rem;font-weight: bold;pointer-events: none;" id="next-button">Next</a><br>-->
+		
+		
+		<!--<p style="color: grey;font-size: 1rem;">To:
+			&nbsp; <p id="toaddress" style="color: black;font-size: 1.3rem;">
+			
+			</p>-->
+			<!--<input type="text" name="toaddress" class="toaddress"  style="border: none;font-size: 1.5rem;width:90%" multiple>-->
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-xs-12">
+				<form  method="get">
+					
+					<input type="text" name="to" id="to"style="border:none;font-size: 1rem;width:90%;" placeholder="Search...">
+					<!--<button type="submit" style="background: none;border:none;"><i class="fa fa-search" aria-hidden="true" style="font-size: 1rem;"></i></button>-->
+				</form>
+			</div>
+		
+			<div class="col-lg-12 col-md-12 col-xs-12">
+				{% for users in user_list %}
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-xs-12">
+								{% if users.id is not request.user.profile.id %}
+								<a href="/private_chats/{{user.id}}/chat/{{users.id}}/">{{users.user_name}}</a>
+								{% endif %}
+								
+									
+							</div>
+
+							<!--<div class="col-lg-2 col-md-2 col-xs-12">
+								<input type="checkbox" name="select_username" class="selectbox"  onclick="fillToAddress()">
+							</div>-->
+								
+						</div>
+					</div>
+					
+				{% endfor %}
+			</div>
+		
+	</div>
+	</div>
+	</div>
+		
+	</div>
+</div>
+
+<script type="text/javascript">
+function on() {
+  document.getElementById("overlay").style.display = "block";
+}
+window.onload=on();
+function off() {
+  document.getElementById("overlay").style.display = "none";
+}
+
+
+
+
+/*function fillToAddress(){
+	var search=document.getElementsByClassName('search')
+	var checks=document.getElementsByClassName('selectbox')
+	toaddress=document.getElementById('toaddress')
+	
+	
+		for(i=0;i<=search.length;i++)
+		{
+			
+			
+			if(checks.item(i))
+			{
+				item=checks.item(i);
+				if(item.checked)
+				{
+					if(toaddress.innerHTML.indexOf(search.item(i).innerHTML)>-1)
+					{
+						
+						toaddress.innerHTML+="";
+					
+					}
+					else
+					{
+						toaddress.innerHTML+=" ";
+						toaddress.innerHTML+=search.item(i).innerHTML + ',' ;
+						
+						
+						document.getElementById("next-button").style.pointerEvents="auto";
+					
+					}
+
+					if(!item.checked)
+					{
+						alert('hi');
+					}
+					
+				
+				}
+							
+			}
+
+			
+			
+			
+		}
+		
+		
+		
+}
+*/
+
+</script>
+
+{% endblock %}

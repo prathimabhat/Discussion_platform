@@ -1,0 +1,47 @@
+{% block content %}
+
+{% include 'therapist_dashboard/base.html' %}
+
+<style type="text/css">
+	body{
+		background-color: #EEEEE0;
+	}
+</style>
+
+<br><br>
+<div class="container" style="background-color: white;">
+	<h1>Patient profiles</h1>
+		<br><br>
+	
+	<div class="row">
+
+		{% for patient in patients %}
+		
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<b>Name</b> :&nbsp;&nbsp; {{patient.name}}
+			</div><br>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<b>Gender</b> : &nbsp;&nbsp;{{patient.gender}}
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<b>Address</b> : &nbsp;&nbsp;{{patient.address}}
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<b>DOB</b> : &nbsp;&nbsp;{{patient.date_of_birth}}
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<b>Condition</b> : &nbsp;&nbsp;{{patient.mental_illness}}<hr>
+			</div>
+		
+
+		{% endfor %}
+		
+	
+			
+
+
+	
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+
+{% load static %}
+<style type="text/css">
+  .inner-box{
+    background-color: white;
+    box-shadow: 5px 5px ;
+    
+  }
+  body{
+    
+    background-image: url({% static 'images/background.jpg' %});
+    background-repeat:no-repeat;
+    background-size:cover;
+    min-height: 190%
+  }
+  .field-labels{
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+
+
+  }
+  
+
+
+</style>
+
+<div class="container col-lg-6 col-sm-12 col-xs-12" style="padding-bottom: 2rem;">
+  <h2 style="text-align: center;color: white;">Sign up</h2><br>
+    <div class="container inner-box" style="padding-bottom: 2rem;padding-top: 1rem;">
+    <form method="post">
+      {% csrf_token %}
+      <p>
+      <div class="container col-lg-12">
+        {% for field in form %}
+          
+            <div class="container field-labels">
+              {{ field.label}}<br>
+            
+              {{ field }}
+              
+            </div>
+       
+              {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+              {% endfor %}
+        </p>
+        {% endfor %}
+    </div>
+      <div class="container col-lg-3 offset-lg-4.5">
+        <button  type="submit" class="container col-lg btn btn-success" style="width: 8rem;font-weight: bolder;">Sign Up</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div>
+  <p style="text-align: center;color: white;">Already signed up? <a href='/accounts/login'>login</a></p>
+</div>
+
+<script>
+    $(function () {
+        $('.datetime-input').datetimepicker({
+            format:'YYYY-MM-DD'
+        });
+    });
+</script>
+
+{% endblock %}

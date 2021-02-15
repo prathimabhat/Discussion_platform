@@ -1,0 +1,52 @@
+{% block content %}
+
+{% include 'ask_the_doctor/base.html' %}
+{% load static %}
+<style type="text/css">
+	body{
+		background-color: #EEEEE0;
+	}
+	.profile-box{
+		background-color: white;
+	}
+	.user-styles{
+		font-size: 1.9rem;
+		font-weight: bolder;
+		color:	#D2691E;
+		font-family: cursive;
+	}
+	.text-styles{
+		font-weight: bolder;
+		font-size: 1.3rem;
+	}
+
+</style>
+<br><br>
+
+	<div class="container profile-box">
+		<div class="row">
+
+			<!---<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<br><br><img src="{% static 'images/avatar.jpg' %}" style="border-radius: 50%;">
+			</div>-->
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<br><br><span class="user-styles">{{user.user_name}}</span>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-6 offset-md-6 text-styles">
+				Name : {{user.first_name}}&nbsp;&nbsp;{{user.last_name}}
+			</div><br><br>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-6 offset-md-6 text-styles">
+				Email ID : {{user.email_id}}
+			</div><br><br>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-6 offset-md-6 text-styles">
+				Location : {{user.location}}
+			</div><br><br>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-lg-6 offset-md-6 text-styles">
+				You became a member on : {{user.date_of_joining}}
+			</div><br><br>
+		
+		</div>
+	</div>
+
+
+{% endblock %}

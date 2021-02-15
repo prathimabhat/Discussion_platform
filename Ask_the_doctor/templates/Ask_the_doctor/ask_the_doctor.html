@@ -1,0 +1,43 @@
+{% extends 'ask_the_doctor/base.html' %}
+{% block content %}
+
+<style type="text/css">
+	.therapist-card{
+		box-shadow: 3px;
+		background-color: #EED5B7;
+	}
+	.ask-button{
+		border-radius: 50%;
+		background-color: green;
+	}
+</style>
+
+<br><br>
+<div class="container">
+	<div class="row">
+	{% for therapist in therapists %}
+	    
+	    <div class="col-md-4 d-flex align-items-stretch">
+	        <div class="card mb-2 therapist-card mt-3">
+	            
+	            <div class="card-body">
+	                <h5 class="card-title">Dr. {{ therapist.therapist_name }}&nbsp;&nbsp;&nbsp; 
+	                
+
+	                	<a class="btn btn-primary ask-button" href="/ask_the_doctor/ask/{{therapist.id}}/">ASK</a></h5>
+
+	                	
+
+	                <p class="card-text"><br> Has a {{ therapist.qualification }} and is a specialist in {{therapist.specialization_area}}. <br>
+	                	Office address:<br>
+	                	{{therapist.office_address}}<br>
+	                
+	                	</p>
+	            </div>
+	        </div>
+
+	    </div>
+	    {% endfor %}
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% block content %}
+{% include 'ask_the_doctor/base.html' %}
+<style type="text/css">
+	body{
+		background-color: #EEEEE0;
+	}
+	.cats{
+		background-color: white;
+	}
+</style>
+{% if category %}
+<br><br>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+			<h3>{{category}}</h3>
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+			{% if request.user.is_normal_user is True%}
+			<span style="font-weight: bolder;font-size: 1.5rem;"><a href="/community_forum/{{category}}/questions/new/">Ask a question</a></span>
+			{% else %}
+				<p></p>
+			{% endif %}
+
+		</div>
+			
+	</div>
+	<hr><br>
+</div>
+
+<br><br>
+
+<div class="container cats">
+	<br>
+	<!---<div class="row">
+
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 offset-lg-8">
+			<b>Up votes</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Down votes</b>
+		</div>
+
+		
+	</div>-->
+	<div class="row">
+		{% for question in category_questions %}
+			<br>
+
+			<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+				<a href="/community_forum/questions/{{question.id}}/">{{question.question_title}}</a><br><br>
+			</div>
+			
+			<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+				
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="far fa-arrow-alt-up" style="font-size: 2rem;"></i>{{question.total_upvotes}} <span style="font-size: 1.5rem;font-weight: bolder;" >&uarr;</span>&nbsp;&nbsp;&nbsp;
+			</div>
+			<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+				{{question.total_downvotes}} <span style="font-size: 1.5rem;font-weight: bolder;">&darr;</span>&nbsp;&nbsp;&nbsp;<i class="far fa-arrow-alt-down"></i>
+			</div>
+			
+			{% empty %}
+			<div class="container" style="text-align: center;">
+				<p>Sorry! There are no questions in this forum</p>
+			</div>
+
+		{% endfor %}
+
+		</div>
+	</div>
+			
+{% else %}
+Sorry this page does not exist
+{% endif %}
+
+{% endblock %}
